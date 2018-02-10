@@ -20,14 +20,27 @@ public class robotito
             //Direction.NORTH, EAST, SOUTH, WEST
             //Definicion de la ubicacion del robot, Ciudad, posicion, Direccion, Numero things en el bolso.
             estudiante = new Robot(objetos,1, 0, Direction.EAST,10);
-            
+            int t = 5;
+            boolean recorrido=true;  
 	    //Mover una interseccion en el sentido al cual este apuntando el objeto.
-            estudiante.move ();
-            
-            //Girar a la izquierda
-            for(int j=0;j<4; j++) {
-            estudiante.turnLeft();
+            //estudiante.move ();
+            while (t !=0)
+            {
+                creacionFuncion(t);
+                
+                for(int j=0;j<3; j++) {
+                estudiante.turnLeft();}
+                
+                if (recorrido == false)
+                {
+                    t--;
+                }
+                recorrido = !recorrido;
             }
+            //Girar a la izquierda
+            
+            
+            
             //Tomando decisiones, Si puedo tomar un Thing
             boolean puedeTomar = estudiante.canPickThing();
             
@@ -45,7 +58,7 @@ public class robotito
             estudiante.frontIsClear();
             
             //Invocando una funcion
-            creacionFuncion(4);
+           // creacionFuncion(4);
             
             //Toman un Thing
             estudiante.pickThing();
